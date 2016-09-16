@@ -1,3 +1,5 @@
+var markers = {};
+
 /**
  * This is the default callback invoked whenever a msg is pushed to the pubsub channel of the map
  * All callbacks expect an stringified array of objects that contains at least the following properties id, lat, lng
@@ -20,11 +22,13 @@ function defaultCallback(obj) {
       var asset = jsonObj[i];
       var marker = new google.maps.Marker({
     
-        position: {lat:Number(jsonObj[i].lat), lng: Number(jsonObj[i].lng)},
+        position: {lat:Number(asset.lat), lng: Number(asset.lng)},
         map: map,
-        icon: getIcon(jsonObj.type),
-        title: "id:" +  jsonObj.id
+        icon: getIcon(asset.type),
+        title: "id:" +  asset.id
       });
+      
+      markers[asset.id] = asset;
     }
   }else {
     
