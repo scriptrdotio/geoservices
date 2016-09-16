@@ -1,0 +1,1 @@
+publish("map", JSON.stringify([{id:"1234", lat:40.674116, lng: -74.005976}]));
