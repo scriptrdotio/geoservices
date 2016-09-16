@@ -10,7 +10,7 @@ You can change the name in the configuration file (see below)
 
 # Configuration
 
-Update /geoservices/simplemap/config.js with your sown settings (read comments in script for more)
+Update /geoservices/simplemap/config.js with your own settings (read comments in script for more)
 
 # Adding your own datahandler
 
