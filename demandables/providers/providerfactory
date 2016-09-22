@@ -1,0 +1,32 @@
+// Initialize log
+var log = require("log"); log.setLevel("info");
+
+var config = require("/demandables/config");
+
+/**
+ * Provider factory. Uses the content of /demandables/config to create instances of Providers sub-classes
+ * Providers are usually defined in demandables/providers
+ */
+
+/**
+ * @function getProvider
+ * @param {String} workerType: e.g. "/demandables/worker/mobileworker"
+ * @return {Object} instance of a Provider sub-class
+ * @throws {Error}
+ */
+function getProvider(workerType) {
+  
+  try {
+    
+    var providerModule = require(config.providers[workerType].module);
+  	var clazz = providerModule[config.providers[workerType].clazz];
+  	return new clazz();
+  }catch(exception) {
+    
+     throw {
+    
+       errorCode: "Provider_Not_Found",
+       errorDetail: "providerFactory. Could not instanciate provider for " + workerType + ". " + JSON.stringify(exception)
+     };
+  }
+}
