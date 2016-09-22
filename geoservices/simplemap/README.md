@@ -16,3 +16,6 @@ Update /geoservices/simplemap/config.js with your own settings (read comments in
 
 The datahandler.js script contains callback functions that are invoked whenever a message is published on the channel.
 You can use the default handler function (only displays markers on the map) or implement your own handler to add more logic.
+
+# Notes
+URLs in /geoservices/simplemap//html/simplemap.html are relative. This works if you specify a subdomain (scriptr.io workspace > Account > Sub-domain). If you doc not specify a sub-domain, you should modify the URLs to be absolute and make sur to add your anonymous auth token as a part of the query string (https://api.scriptrapps.io/...?auth_token=YOUR_TOKEN)
